@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animations/screens/sand_box.dart';
 import 'package:flutter_animations/shared/screen_title.dart';
 import 'package:flutter_animations/shared/trip_list.dart';
 
@@ -8,6 +9,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  GlobalKey key = GlobalKey(debugLabel: 'home-key');
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +29,12 @@ class _HomeState extends State<Home> {
             SizedBox(height: 30),
             SizedBox(
               height: 160,
-              child: ScreenTitle(text: 'Ninja Trips'),
+              child: ScreenTitle(text: 'Ninja Trips', key: key,),
             ),
             Flexible(
               child: TripList(),
-            )
-            //Sandbox(),
+            ),
+            ElevatedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SandBox(),));}, child: Text('Go to SandBox'))
           ],
         )
       )

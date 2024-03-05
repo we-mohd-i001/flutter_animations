@@ -6,7 +6,7 @@ import 'package:lipsum/lipsum.dart' as lipsum;
 class Details extends StatelessWidget {
 
   final Trip trip;
-  Details({ @required this.trip });
+  Details({ required this.trip });
 
   @override
   Widget build(BuildContext context) {
