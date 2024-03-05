@@ -38,8 +38,14 @@ class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
 
     _controller.addListener(() {
       //print(_controller.value);
-      print(_colorAnimation.value);
+      //print(_colorAnimation.value);
     });
+  }
+
+  @override
+  void dispose(){
+    super.dispose();
+    _controller.dispose();
   }
 
   @override
