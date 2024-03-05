@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class Heart extends StatefulWidget {
@@ -9,6 +11,7 @@ class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
   bool isFavorite = false;
   late AnimationController _controller;
   late Animation _colorAnimation;
+  late Animation _sizeAnimation;
 
   @override
   void initState() {
@@ -18,9 +21,25 @@ class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
       duration: Duration(milliseconds: 300),
     );
 
+
+
+
     _colorAnimation = ColorTween(
       begin: Colors.grey,
       end: Colors.red,
+    ).animate(_controller);
+
+    _sizeAnimation = TweenSequence(
+      <TweenSequenceItem<double>>[
+        TweenSequenceItem<double>(
+          tween: Tween(begin: 30, end: 50),
+          weight: 50
+        ),
+        TweenSequenceItem<double>(
+            tween: Tween(begin: 50, end: 30),
+            weight: 50
+        ),
+      ]
     ).animate(_controller);
 
     _controller.addStatusListener((status) {
@@ -53,15 +72,19 @@ class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
     return AnimatedBuilder(
       animation: _controller,
       builder: (BuildContext context, Widget? child) {
-        return IconButton(
-          icon: Icon(
-            Icons.favorite,
-            color: _colorAnimation.value,
-            size: 30,
+        return SizedBox(
+          height: 62,
+          width: 62,
+          child: IconButton(
+            icon: Icon(
+              Icons.favorite,
+              color: _colorAnimation.value,
+              size: _sizeAnimation.value,
+            ),
+            onPressed: () {
+              isFavorite ? _controller.reverse() : _controller.forward();
+            },
           ),
-          onPressed: () {
-            isFavorite ? _controller.reverse() : _controller.forward();
-          },
         );
       },
     );
