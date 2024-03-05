@@ -75,14 +75,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.5"
-  lipsum:
-    dependency: "direct dev"
+  lorem_ipsum:
+    dependency: "direct main"
     description:
-      name: lipsum
-      sha256: "6651e6eef65d9afd5f48d170561e9dbf4373b1c22073c4b5810544be53a0de6e"
+      name: lorem_ipsum
+      sha256: b018535db8525a45bbcd7a44e151480e2618e2111c5305725e3713ce7c6ba677
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.1"
+    version: "0.0.3"
   matcher:
     dependency: transitive
     description:
