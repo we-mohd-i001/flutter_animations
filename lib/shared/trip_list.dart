@@ -11,12 +11,14 @@ class _TripListState extends State<TripList> {
   List<Widget> _tripTiles = [];
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
 
+
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _addTrips();
     });
+
   }
 
   void _addTrips() {
@@ -49,6 +51,7 @@ class _TripListState extends State<TripList> {
       onTap: () {
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => Details(trip: trip)));
+
       },
       contentPadding: EdgeInsets.all(25),
       title: Column(
@@ -76,7 +79,6 @@ class _TripListState extends State<TripList> {
       trailing: Text('\$${trip.price}'),
     );
   }
-
   Tween<Offset> _offset = Tween(begin: Offset(1, 0), end: Offset(0, 0));
 
   @override

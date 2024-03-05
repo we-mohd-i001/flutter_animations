@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class ScreenTitle extends StatelessWidget {
   final String text;
-
   const ScreenTitle({required Key key, required this.text}) : super(key: key);
 
   @override
@@ -24,6 +23,7 @@ class ScreenTitle extends StatelessWidget {
         style: TextStyle(
             fontSize: 36, color: Colors.white, fontWeight: FontWeight.bold),
       ),
+
     );
   }
 }
