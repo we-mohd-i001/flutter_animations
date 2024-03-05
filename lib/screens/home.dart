@@ -34,7 +34,7 @@ class _HomeState extends State<Home> {
             Flexible(
               child: TripList(),
             ),
-            ElevatedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SandBox(),));}, child: Text('Go to SandBox'))
+            //ElevatedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SandBox(),));}, child: Text('Go to SandBox'))
           ],
         )
       )
